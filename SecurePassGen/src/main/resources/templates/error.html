@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<title>エラー</title>
+</head>
+<body class="bg-light">
+	<div class="container vh-100 d-flex-columun justify-content-center align-items-center">
+		<div class="card shadow-lg p-4 text-center">
+			<h2 class="text-danger">エラー</h2>
+			<p class="text-muted">エラーが発生しました。</p>
+			<p class="text-secondary font-weight-bold" th:text="${status} + ' ' + ${error}"></p><br>
+			<hr>
+			<a class="btn btn-primary mt-3" th:href="@{/}">TOPページに戻る</a>
+		</div>
+	</div>
+</body>
+</html>

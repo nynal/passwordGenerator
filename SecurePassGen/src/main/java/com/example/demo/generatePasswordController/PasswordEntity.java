@@ -12,7 +12,7 @@ public record PasswordEntity(
 	private static final String LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
 	private static final String UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	private static final String NUMBERS = "0123456789";
-	private static final String SYMBOLS = "!#$%&@-+";
+	private static final String SYMBOLS = "-./:@[]_#&?";
 	private static final SecureRandom random = new SecureRandom();
 
 	public PasswordEntity(String password) {
@@ -26,11 +26,11 @@ public record PasswordEntity(
 
 		// 必須の文字種を追加
 		if (config.includeUppercase())
-			newPassword.append(generateRandomChar(1, UPPERCASE));
+			newPassword.append(generateRandomChar(random.nextInt(1, 3), UPPERCASE));
 		if (config.includeNumbers())
-			newPassword.append(generateRandomChar(1, NUMBERS));
+			newPassword.append(generateRandomChar(random.nextInt(1, 3), NUMBERS));
 		if (config.includeSymbols())
-			newPassword.append(generateRandomChar(1, SYMBOLS));
+			newPassword.append(generateRandomChar(random.nextInt(1, 3), SYMBOLS));
 
 		// 指定文字列を挿入すると文字数オーバーする場合
 		String customCharacters = config.customCharacters();
