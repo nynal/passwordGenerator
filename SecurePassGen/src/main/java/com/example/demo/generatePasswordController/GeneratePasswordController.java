@@ -18,12 +18,14 @@ public class GeneratePasswordController {
 
 	private final PasswordGenerateService service;
 
+//	パスワード生成画面を表示する
 	@GetMapping("/generate")
 	public String showGeneratePasswordWindow(Model model) {
 		model.addAttribute("passwordConfigForm", new PasswordConfigForm());
 		return "generate";
 	}
 	
+//パスワード生成画面に設定を引き継いで戻る
 	@PostMapping("/generate")
 	public String backToGeneratePasswordWindow(@ModelAttribute PasswordConfigForm form,
 			BindingResult result) {
@@ -35,7 +37,7 @@ public class GeneratePasswordController {
 		return "generate";
 	}
 
-	// password生成
+//	パスワード生成結果を表示する
 	@PostMapping("/generatePassword")
 	public String generatePassword(@ModelAttribute @Validated PasswordConfigForm form,
 			BindingResult bindingResult,
