@@ -1,9 +1,12 @@
-package com.example.demo.generatePasswordController;
+package com.example.demo.generatePassword;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.PasswordConfigEntity;
+import com.example.demo.entity.PasswordEntity;
 
 @Service
 public class PasswordGenerateServiceImple implements PasswordGenerateService {

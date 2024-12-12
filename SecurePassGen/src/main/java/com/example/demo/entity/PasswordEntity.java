@@ -1,4 +1,4 @@
-package com.example.demo.generatePasswordController;
+package com.example.demo.entity;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;

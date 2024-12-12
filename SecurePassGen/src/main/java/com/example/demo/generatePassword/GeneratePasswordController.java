@@ -1,4 +1,4 @@
-package com.example.demo.generatePasswordController;
+package com.example.demo.generatePassword;
 
 import java.util.List;
 
@@ -9,6 +9,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.demo.entity.PasswordEntity;
 
 import lombok.RequiredArgsConstructor;
 
@@ -37,7 +39,7 @@ public class GeneratePasswordController {
 		return "generate";
 	}
 
-//	パスワード生成結果を表示する
+//	パスワード生成→結果を表示する
 	@PostMapping("/generatePassword")
 	public String generatePassword(@ModelAttribute @Validated PasswordConfigForm form,
 			BindingResult bindingResult,
@@ -52,7 +54,7 @@ public class GeneratePasswordController {
 			System.out.println("Received form: " + form);
 			List<PasswordEntity> passwordList = service.generate(form.toEntity());
 			model.addAttribute("passwordList", passwordList);
-			return "displayPasswordList";
+			return "displayGeneratedPasswords";
 			
 		} catch (Exception e) {
 			System.err.println("Error during password generation: " + e.getMessage());

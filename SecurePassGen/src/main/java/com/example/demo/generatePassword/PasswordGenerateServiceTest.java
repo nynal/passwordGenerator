@@ -1,6 +1,9 @@
-package com.example.demo.generatePasswordController;
+package com.example.demo.generatePassword;
 
 import java.util.List;
+
+import com.example.demo.entity.PasswordConfigEntity;
+import com.example.demo.entity.PasswordEntity;
 
 public class PasswordGenerateServiceTest implements PasswordGenerateService {
 

@@ -1,6 +1,8 @@
-package com.example.demo.generatePasswordController;
+package com.example.demo.generatePassword;
 
 import org.springframework.lang.Nullable;
+
+import com.example.demo.entity.PasswordConfigEntity;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;

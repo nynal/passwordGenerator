@@ -1,4 +1,4 @@
-package com.example.demo.generatePasswordController;
+package com.example.demo.entity;
 
 public record PasswordConfigEntity(
 		int length,
