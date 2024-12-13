@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+			xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+			layout:decorate="~{layout/layout}"
+>
 <head>
-<meta charset="UTF-8">
 <title>SecurePasswordGenerator</title>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="max-width: 1170px">
-<div class="container mt-5">
+<body>
+<div layout:fragment="content" class="container mt-5">
 <h1 class="text-center text-muted mb-4">Password Generator</h1>
 	<div class="text-center">
 		<a th:href="@{/generate}" class="btn btn-primary btn-lg">パスワード生成</a>

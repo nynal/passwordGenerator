@@ -1,1 +1,22 @@
-@charset "UTF-8";
+body {
+            position: relative;
+            min-height: 100vh; /* ページの高さを画面の高さにする */
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding-bottom: 60px; /* フッターの高さ分だけ余白を確保 */
+        }
+        main {
+            flex: 1; /* メインコンテンツが余白を埋める */
+        }
+        footer {
+			max-width: 1170px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10; /* 最前面に表示 */
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            padding: 10px 0;
+        }

@@ -1,63 +1,63 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+			xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+			layout:decorate="~{layout/layout}"
+>
 
 <head>
-	<meta charset="UTF-8">
 	<title>SecurePasswordGenerator</title>
-	<!--*/<link rel="stylesheet" th:href="@{/css/style.css}">/*-->
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body style="max-width: 1170px">
-	<div class="container mt-5" th:object="${passwordConfigForm}">
-		<h2 class="text-center text-secondary">Generate Secure Password</h2>
-		<form th:action="@{/generatePassword}" method="POST" class="mt-4">
-			<!--*/	条件1/*-->
-			<div class="form-group">
-				<label for="length">文字列の長さ (4 ~ 26文字)</label>
-				<input type="number" id="length" name="length" class="form-control" th:value="*{length}" min="4" max="26">
-			</div>
-			
-			<div class="form-group">
-				<!--*/	条件2/*-->
-				<label>含める種類</label>
-				<div class="form-check">
-					<input type="checkbox" id="includeSymbols" name="includeSymbols" value="true"
-						class="form-check-input" th:checked="*{includeSymbols}">
-					<label class="form-check-label" for="includeSymbols">記号</label>
+<body>
+	<div layout:fragment="content">
+		<div class="container mt-5" th:object="${passwordConfigForm}">
+			<h2 class="text-center text-secondary">Generate Secure Password</h2>
+			<form th:action="@{/generatePassword}" method="POST" class="mt-4">
+				<!--*/	条件1/*-->
+				<div class="form-group">
+					<label for="length">文字列の長さ (4 ~ 26文字)</label>
+					<input type="number" id="length" name="length" class="form-control" th:value="*{length}" min="4" max="26">
 				</div>
-				<!--*/	条件3/*-->
-				<div class="form-check">
-					<input type="checkbox" id="includeLowercase" name="includeLowercase" value="true"
-						class="form-check-input" th:checked="*{includeLowercase}">
-					<label class="form-check-label" for="includeLowercase">英小文字</label>
+				
+				<div class="form-group">
+					<!--*/	条件2/*-->
+					<label>含める種類</label>
+					<div class="form-check">
+						<input type="checkbox" id="includeSymbols" name="includeSymbols" value="true"
+							class="form-check-input" th:checked="*{includeSymbols}">
+						<label class="form-check-label" for="includeSymbols">記号</label>
+					</div>
+					<!--*/	条件3/*-->
+					<div class="form-check">
+						<input type="checkbox" id="includeLowercase" name="includeLowercase" value="true"
+							class="form-check-input" th:checked="*{includeLowercase}">
+						<label class="form-check-label" for="includeLowercase">英小文字</label>
+					</div>
+					<!--*/	条件4/*-->
+					<div class="form-check">
+						<input type="checkbox" id="includeUppercase" name="includeUppercase" value="true"
+							class="form-check-input" th:checked="*{includeUppercase}">
+						<label class="form-check-label" for="includeUppercase">英大文字</label>
+					</div>
+					<!--*/	条件5/*-->
+					<div class="form-check">
+						<input type="checkbox" id="includeNumbers" name="includeNumbers" value="true"
+							class="form-check-input" th:checked="*{includeNumbers}">
+						<label class="form-check-label" for="includeNumbers">整数</label>
+					</div>
 				</div>
-				<!--*/	条件4/*-->
-				<div class="form-check">
-					<input type="checkbox" id="includeUppercase" name="includeUppercase" value="true"
-						class="form-check-input" th:checked="*{includeUppercase}">
-					<label class="form-check-label" for="includeUppercase">英大文字</label>
+				<!--*/	条件6/*-->
+				<div class="form-group">
+					<label for="customCharacters">カスタム文字列 (指定した文字列の長さ以下で入力してください)</label>
+					<textarea id="customCharacters" name="customCharacters" class="form-control" rows="3"
+						th:values="*{customCharacters}"></textarea>
 				</div>
-				<!--*/	条件5/*-->
-				<div class="form-check">
-					<input type="checkbox" id="includeNumbers" name="includeNumbers" value="true"
-						class="form-check-input" th:checked="*{includeNumbers}">
-					<label class="form-check-label" for="includeNumbers">整数</label>
-				</div>
-			</div>
-			<!--*/	条件6/*-->
-			<div class="form-group">
-				<label for="customCharacters">カスタム文字列 (指定した文字列の長さ以下で入力してください)</label>
-				<textarea id="customCharacters" name="customCharacters" class="form-control" rows="3"
-					th:values="*{customCharacters}"></textarea>
-			</div>
-
-			<button type="submit" class="btn btn-primary btn-block mt-6">生成</button>
-		</form>
-
-		<a th:href="@{/}" class="btn btn-link mt-5">TOPページ</a>
+	
+				<button type="submit" class="btn btn-primary btn-block mt-6">生成</button>
+			</form>
+	
+		</div>
 	</div>
-	<br>
 
 </body>
 
