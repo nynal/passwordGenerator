@@ -54,7 +54,7 @@ public class GeneratePasswordController {
 			System.out.println("Received form: " + form);
 			List<PasswordEntity> passwordList = service.generate(form.toEntity());
 			model.addAttribute("passwordList", passwordList);
-			return "displayGeneratedPasswords";
+			return "result";
 			
 		} catch (Exception e) {
 			System.err.println("Error during password generation: " + e.getMessage());

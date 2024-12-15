@@ -30,7 +30,7 @@ public record PasswordConfigForm(
     String customCharacters) {
 
     public PasswordConfigForm() {
-        this(12, false, true, true, false, "");
+        this(12, true, true, true, true, "");
     }
     
     public PasswordConfigForm(Integer length, Boolean includeSymbols, Boolean includeLowercase, 

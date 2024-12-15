@@ -5,7 +5,7 @@
 >
 
 <head>
-	<title>SecurePasswordGenerator</title>
+	<title>パスワード生成</title>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
 				<!--*/	条件1/*-->
 				<div class="form-group">
 					<label for="length">文字列の長さ (4 ~ 26文字)</label>
-					<input type="number" id="length" name="length" class="form-control" th:value="*{length}" min="4" max="26">
+					<input type="number" id="length" name="length" class="form-control" th:value="*{length}" min="4" max="26" style="width: 100px">
 				</div>
 				
 				<div class="form-group">
@@ -49,11 +49,13 @@
 				<!--*/	条件6/*-->
 				<div class="form-group">
 					<label for="customCharacters">カスタム文字列 (指定した文字列の長さ以下で入力してください)</label>
-					<textarea id="customCharacters" name="customCharacters" class="form-control" rows="3"
-						th:values="*{customCharacters}"></textarea>
+					<input id="customCharacters" name="customCharacters" class="form-control" rows="2" max="26"
+						th:value="*{customCharacters}" style="width: 400px"></input>
 				</div>
-	
-				<button type="submit" class="btn btn-primary btn-block mt-6">生成</button>
+				<!--*/ 生成ボタン */-->
+				<div style="display: flex; justify-content: center; margin-top: 20px;">
+				    <button type="submit" class="btn btn-primary" style="width: 200px;">生成</button>
+				</div>
 			</form>
 	
 		</div>
