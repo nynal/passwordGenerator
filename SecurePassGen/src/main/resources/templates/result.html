@@ -12,7 +12,8 @@
 			<h1 class="mt-3 text-secondary">パスワード生成結果</h1>
 		
 			<div th:each="password: ${passwordList}">
-		    	<p id="password-{{password.password}}" th:text="${password.password}" class="alert alert-info mt-3 w-50" style="cursor: pointer;" onclick="copyToClipboard(this)">
+		    	<p id="password-{{password.password}}" th:text="${password.password}"
+		    		  class="alert alert-info mt-3 w-50" style="cursor: pointer;" onclick="copyToClipboard(this)">
 		        	<!-- パスワード表示部分 -->
 		    	</p>
 			</div>
@@ -21,12 +22,12 @@
 				<!--*/戻るボタンと設定を引き継ぐフォーム/*-->
 				<div class="text-left mt-3 mr-2" th:object="${passwordConfigForm}" >
 					<form th:action="@{/generate}" method="POST">
-						<input type="hidden" name="length" th:value="*{length}">
-						<input type="hidden" name="includeSymbols" th:value="*{includeSymbols}">
-						<input type="hidden" name="includeLowercase" th:value="*{includeLowercase}">
-						<input type="hidden" name="includeUppercase" th:value="*{includeUppercase}">
-						<input type="hidden" name="includeNumbers" th:value="*{includeNumbers}">
-						<input  type="hidden" name="customCharacters" th:value="*{customCharacters}"></input>
+						<input type="hidden" th:field="*{length}">
+						<input type="hidden" th:field="*{includeSymbols}">
+						<input type="hidden" th:field="*{includeLowercase}">
+						<input type="hidden" th:field="*{includeUppercase}">
+						<input type="hidden" th:field="*{includeNumbers}">
+						<input   type="hidden" th:field="*{customCharacters}"></input>
 						<input type="submit" value="戻る" class="btn btn-secondary">
 					</form>
 				</div>
@@ -34,12 +35,12 @@
 				<!--*/同じ設定でパスワードを再生成する/*-->
 				<div class="text-left mt-3" th:object="${passwordConfigForm}">
 					<form th:action="@{/generatePassword}" method="POST" >
-						<input type="hidden" name="length" th:value="*{length}">
-						<input type="hidden" name="includeSymbols" th:value="*{includeSymbols}">
-						<input type="hidden" name="includeLowercase" th:value="*{includeLowercase}">
-						<input type="hidden" name="includeUppercase" th:value="*{includeUppercase}">
-						<input type="hidden" name="includeNumbers" th:value="*{includeNumbers}">
-						<input   type="hidden" name="customCharacters" th:value="*{customCharacters}"></input>
+						<input type="hidden" th:field="*{length}">
+						<input type="hidden" th:field="*{includeSymbols}">
+						<input type="hidden" th:field="*{includeLowercase}">
+						<input type="hidden" th:field="*{includeUppercase}">
+						<input type="hidden" th:field="*{includeNumbers}">
+						<input   type="hidden" th:field="*{customCharacters}"></input>
 						<input type="submit" value="再生成" class="btn btn-primary">
 					</form>
 				</div>

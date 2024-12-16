@@ -16,41 +16,41 @@
 				<!--*/	条件1/*-->
 				<div class="form-group">
 					<label for="length">文字列の長さ (4 ~ 26文字)</label>
-					<input type="number" id="length" name="length" class="form-control" th:value="*{length}" min="4" max="26" style="width: 100px">
+					<input type="number" id="length"  class="form-control" th:field="*{length}" min="4" max="26" style="width: 100px">
 				</div>
 				
 				<div class="form-group">
 					<!--*/	条件2/*-->
 					<label>含める種類</label>
 					<div class="form-check">
-						<input type="checkbox" id="includeSymbols" name="includeSymbols" value="true"
-							class="form-check-input" th:checked="*{includeSymbols}">
+						<input type="checkbox" id="includeSymbols"  value="true"
+							class="form-check-input" th:field="*{includeSymbols}">
 						<label class="form-check-label" for="includeSymbols">記号</label>
 					</div>
 					<!--*/	条件3/*-->
 					<div class="form-check">
-						<input type="checkbox" id="includeLowercase" name="includeLowercase" value="true"
-							class="form-check-input" th:checked="*{includeLowercase}">
+						<input type="checkbox" id="includeLowercase" value="true"
+							class="form-check-input" th:field="*{includeLowercase}">
 						<label class="form-check-label" for="includeLowercase">英小文字</label>
 					</div>
 					<!--*/	条件4/*-->
 					<div class="form-check">
-						<input type="checkbox" id="includeUppercase" name="includeUppercase" value="true"
-							class="form-check-input" th:checked="*{includeUppercase}">
+						<input type="checkbox" id="includeUppercase" value="true"
+							class="form-check-input" th:field="*{includeUppercase}">
 						<label class="form-check-label" for="includeUppercase">英大文字</label>
 					</div>
 					<!--*/	条件5/*-->
 					<div class="form-check">
-						<input type="checkbox" id="includeNumbers" name="includeNumbers" value="true"
-							class="form-check-input" th:checked="*{includeNumbers}">
+						<input type="checkbox" id="includeNumbers"  value="true"
+							class="form-check-input" th:field="*{includeNumbers}">
 						<label class="form-check-label" for="includeNumbers">整数</label>
 					</div>
 				</div>
 				<!--*/	条件6/*-->
 				<div class="form-group">
 					<label for="customCharacters">カスタム文字列 (指定した文字列の長さ以下で入力してください)</label>
-					<input id="customCharacters" name="customCharacters" class="form-control" rows="2" max="26"
-						th:value="*{customCharacters}" style="width: 400px"></input>
+					<input id="customCharacters" class="form-control" rows="2" max="26"
+						         th:field="*{customCharacters}" style="width: 400px"></input>
 				</div>
 				<!--*/ 生成ボタン */-->
 				<div style="display: flex; justify-content: center; margin-top: 20px;">
